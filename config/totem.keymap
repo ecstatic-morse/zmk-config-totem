@@ -39,7 +39,12 @@
 
         escape_combo {
             bindings = <&kp ESC>;
-            key-positions = <26 27>;
+            key-positions = <27 28>;
+        };
+
+        under_combo {
+            bindings = <&kp UNDER>;
+            key-positions = <24 23>;
         };
     };
 
