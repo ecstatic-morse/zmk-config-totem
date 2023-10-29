@@ -40,7 +40,7 @@
 
         escape_combo {
             bindings = <&kp ESC>;
-            key-positions = <27 28>;
+            key-positions = <28 29>;
         };
 
         under_combo {
