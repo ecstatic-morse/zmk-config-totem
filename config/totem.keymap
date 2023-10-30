@@ -35,6 +35,9 @@
 #define RGHT_TMB_KEYS 35 36 37
 #define RGHT_KEYS RGHT_TOP_KEYS RGHT_MID_KEYS RGHT_BOT_KEYS RGHT_TMB_KEYS
 
+#define hrm_l mt
+#define hrm_r mt
+
 &mt {
     quick-tap-ms = <100>;
     global-quick-tap;
@@ -46,6 +49,7 @@
 
 / {
     behaviors {
+        /*
         hrm_l: left_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
@@ -68,6 +72,7 @@
             retro-tap;
             bindings = <&kp>, <&kp>;
         };
+        */
         period_colon_morph: period_colon_morph {
             compatible = "zmk,behavior-mod-morph";
             label = "PERIOD_COLON_MORPH";
