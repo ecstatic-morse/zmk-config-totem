@@ -21,6 +21,10 @@
 #define TVP1 4
 #define TVP2 5
 
+// 36 keys layout
+#define LEFT_KEYS 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 25 32 33 34 // left-hand keys
+#define RIGHT_KEYS 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 35 36 37 // right-hand keys
+
 &mt {
     quick-tap-ms = <100>;
     global-quick-tap;
@@ -31,6 +35,32 @@
 };
 
 / {
+    behaviors {
+        hrm_l: left_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_LEFT";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            hold-trigger-key-positions = <RIGHT_KEYS>;
+            hold-trigger-on-release;
+            retro-tap;
+            bindings = <&kp>, <&kp>;
+        };
+
+        hrm_r: right_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            hold-trigger-key-positions = <LEFT_KEYS>;
+            hold-trigger-on-release;
+            retro-tap;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -62,9 +92,9 @@
         base_layer {
             label = "BASE";
             bindings = <
-          &kp Q  &kp W       &kp F        &kp P        &kp B        &kp J    &kp L        &kp U        &kp Y       &kp SEMI
-          &kp A  &mt LALT R  &mt LCTRL S  &mt LSHFT T  &kp G        &kp M    &mt RSHFT N  &mt RCTRL E  &mt LALT I  &kp O
-&kp LWIN  &kp Z  &kp X       &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA    &kp DOT     &kp FSLH  &kp RALT
+          &kp Q  &kp W       &kp F        &kp P        &kp B      &kp J    &kp L        &kp U        &kp Y       &kp SEMI
+          &kp A  &hrm_l LALT R  &hrm_l LCTRL S  &hrm_l LSHFT T  &kp G      &kp M    &hrm_r  RSHFT N  &hrm_r RCTRL E  &hrm_r LALT I  &kp O
+&kp LWIN  &kp Z  &kp X       &kp C        &kp D        &kp V      &kp K    &kp H        &kp COMMA    &kp DOT     &kp FSLH  &kp RALT
                              &kp DEL      &lt 2 ENTER  &lt 3 TAB    &kp ESC  &lt 1 SPACE  &kp BSPC
             >;
         };
@@ -72,7 +102,7 @@
         number_layer {
             bindings = <
         &kp MINUS  &kp N7       &kp N8        &kp N9         &kp PLUS     &trans  &kp F7        &kp F8        &kp F9       &kp F12
-        &kp N0     &mt LALT N4  &mt LCTRL N5  &mt LSHIFT N6  &kp EQUAL    &trans  &mt RSHFT F4  &mt RCTRL F5  &mt RALT F6  &kp F11
+        &kp N0     &hrm_l LALT N4  &hrm_l LCTRL N5  &hrm_l LSHIFT N6  &kp EQUAL    &trans  &hrm_r RSHFT F4  &hrm_r RCTRL F5  &hrm_r RALT F6  &kp F11
 &trans  &kp FSLH   &kp N1       &kp N2        &kp N3         &kp ASTRK    &trans  &kp F1        &kp F2        &kp F3       &kp F10  &trans
                                 &trans        &trans         &kp UNDER    &trans  &trans        &trans
             >;
@@ -123,3 +153,4 @@
         };
     };
 };
+
