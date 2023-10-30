@@ -62,10 +62,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-          &kp Q  &kp W       &kp F        &kp P        &kp B      &kp J    &kp L        &kp U        &kp Y       &kp SEMI
-          &kp A  &mt LALT R  &mt LCTRL S  &mt LSHFT T  &kp G      &kp M    &mt RSHFT N  &mt RCTRL E  &mt LALT I  &kp O
-&kp LWIN  &kp Z  &kp X       &kp C        &kp D        &kp V      &kp K    &kp H        &kp COMMA    &kp DOT     &kp FSLH  &kp RALT
-                             &kp DEL      &lt 2 ENTER  &kp TAB    &kp ESC  &lt 1 SPACE  &kp BSPC
+          &kp Q  &kp W       &kp F        &kp P        &kp B        &kp J    &kp L        &kp U        &kp Y       &kp SEMI
+          &kp A  &mt LALT R  &mt LCTRL S  &mt LSHFT T  &kp G        &kp M    &mt RSHFT N  &mt RCTRL E  &mt LALT I  &kp O
+&kp LWIN  &kp Z  &kp X       &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA    &kp DOT     &kp FSLH  &kp RALT
+                             &kp DEL      &lt 2 ENTER  &lt 3 TAB    &kp ESC  &lt 1 SPACE  &kp BSPC
             >;
         };
 
@@ -82,10 +82,10 @@
 
         symbol_layer {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &kp PRCNT  &kp LPAR   &kp RPAR  &kp LT     &kp GT
-        &trans  &trans  &trans  &trans  &trans    &kp STAR   &kp LBRC   &kp RBRC  &kp LBKT   &kp RBKT
-&trans  &trans  &trans  &trans  &trans  &trans    &kp PIPE   &kp CARET  &kp DLLR  &kp POUND  &kp AT    &trans
-                        &trans  &trans  &trans    &trans     &trans     &trans
+        &trans  &trans      &trans           &trans             &trans    &kp PRCNT  &kp LPAR       &kp RPAR  &kp LT     &kp GT
+        &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans    &kp STAR   &kp LBRC       &kp RBRC  &kp LBKT   &kp RBKT
+&trans  &trans  &trans      &trans           &trans             &trans    &kp HASH   &kp CARET      &kp DLLR  &kp GRAVE  &kp AT    &trans
+                            &trans           &trans             &trans    &trans     &kp AMPERSAND  &kp PIPE
             >;
 
             label = "SYM";
@@ -93,9 +93,9 @@
 
         nav_layer {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans  &trans    &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans  &trans    &trans     &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans    &kp PG_UP  &kp PG_DN  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans     &trans     &trans     &trans
                         &trans  &trans  &trans    &trans  &trans    &trans
             >;
 
