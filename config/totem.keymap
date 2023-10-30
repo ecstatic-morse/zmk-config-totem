@@ -42,11 +42,13 @@
         escape_combo {
             bindings = <&kp ESC>;
             key-positions = <28 29>;
+            timeout-ms = <30>;
         };
 
         under_combo {
             bindings = <&kp UNDER>;
             key-positions = <23 22>;
+            timeout-ms = <30>;
         };
     };
 
