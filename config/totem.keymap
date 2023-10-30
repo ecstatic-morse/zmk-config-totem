@@ -34,8 +34,9 @@
         compatible = "zmk,combos";
 
         config_layer_combo {
-            bindings = <&to 4>;
+            bindings = <&sl 4>;
             key-positions = <20 31>;
+            timeout-ms = <3000>;
         };
 
         escape_combo {
@@ -45,7 +46,7 @@
 
         under_combo {
             bindings = <&kp UNDER>;
-            key-positions = <24 23>;
+            key-positions = <23 22>;
         };
     };
 
