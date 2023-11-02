@@ -36,9 +36,8 @@
 &mt {
     quick-tap-ms = <100>;
     global-quick-tap;
-    retro-tap;
     flavor = "tap-preferred";
-    tapping-term-ms = <170>;
+    tapping-term-ms = <200>;
 };
 
 / {
@@ -49,6 +48,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
+            require-prior-idle-ms = <125>;
             hold-trigger-key-positions = <RGHT_KEYS LEFT_TOP_KEYS LEFT_BOT_KEYS LEFT_TMB_KEYS>;
             hold-trigger-on-release;
             retro-tap;
@@ -60,6 +60,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
+            require-prior-idle-ms = <125>;
             hold-trigger-key-positions = <LEFT_KEYS RGHT_TOP_KEYS RGHT_BOT_KEYS RGHT_TMB_KEYS>;
             hold-trigger-on-release;
             retro-tap;
@@ -101,15 +102,15 @@
             timeout-ms = <3000>;
         };
 
-        escape_combo {
-            bindings = <&kp ESC>;
-            key-positions = <17 36>;
+        under_combo {
+            bindings = <&kp UNDER>;
+            key-positions = <6 7>;
             timeout-ms = <30>;
         };
 
-        under_combo {
-            bindings = <&kp UNDER>;
-            key-positions = <23 22>;
+        dash_combo {
+            bindings = <&kp MINUS>;
+            key-positions = <7 8>;
             timeout-ms = <30>;
         };
     };
@@ -144,9 +145,9 @@
         symbol_layer {
             bindings = <
         &trans  &trans      &trans           &trans             &trans    &kp PRCNT  &kp LT     &kp LPAR  &kp RPAR   &kp GT
-        &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans    &kp STAR   &kp LBKT   &kp LBRC  &kp RBRC   &kp RBKT
-&trans  &trans  &trans      &trans           &trans             &trans    &kp HASH   &kp CARET  &kp DLLR  &kp GRAVE  &kp AT    &trans
-                            &trans           &trans             &trans    &kp AMPS   &kp PIPE   &kp EXCL
+        &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans    &kp PIPE   &kp LBKT   &kp LBRC  &kp RBRC   &kp RBKT
+&trans  &trans  &trans      &trans           &trans             &trans    &kp HASH   &kp CARET  &kp DLLR  &kp GRAVE  &kp BSLH  &kp AT
+                            &trans           &trans             &trans    &kp AMPS   &kp STAR   &kp EXCL
             >;
 
             label = "SYM";
@@ -154,9 +155,9 @@
 
         nav_layer {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans    &kp PG_UP  &kp PG_DN  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &kp HOME  &kp PG_UP  &kp PG_DN  &kp END
         &trans  &trans  &trans  &trans  &trans    &trans  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp B     &trans     &trans     &kp E     &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp B     &kp LBKT   &kp RBKT   &kp W      &trans
                         &trans  &trans  &trans    &trans  &trans    &trans
             >;
 
