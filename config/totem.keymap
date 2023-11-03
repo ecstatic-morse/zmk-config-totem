@@ -144,10 +144,10 @@
 
         number_layer {
             bindings = <
-        &kp MINUS  &kp N7          &kp N8           &kp N9            &kp PLUS     &trans  &kp F7           &kp F8           &kp F9          &kp F12
-        &kp N0     &hrm_l LALT N4  &hrm_l LCTRL N5  &hrm_l LSHIFT N6  &kp ASTRK    &trans  &hrm_r RSHFT F4  &hrm_r RCTRL F5  &hrm_r RALT F6  &kp F11
-&trans  &kp FSLH   &kp N1          &kp N2           &kp N3            &kp FSLH     &trans  &kp F1           &kp F2           &kp F3          &kp F10  &trans
-                                   &kp MINUS        &kp EQUAL         &kp PLUS     &trans  &trans           &trans
+        &trans   &kp N7          &kp N8           &kp N9            &trans      &trans  &kp F7           &kp F8           &kp F9          &kp F12
+        &trans   &hrm_l LALT N4  &hrm_l LCTRL N5  &hrm_l LSHIFT N6  &trans      &trans  &hrm_r RSHFT F4  &hrm_r RCTRL F5  &hrm_r RALT F6  &kp F11
+&trans  &kp N0   &kp N1          &kp N2           &kp N3            &trans      &trans  &kp F1           &kp F2           &kp F3          &kp F10  &trans
+                                 &kp MINUS        &kp EQUAL         &kp PLUS    &trans  &trans           &trans
             >;
 
             label = "NUM";
