@@ -118,7 +118,7 @@
         };
 
         dquote_combo {
-            bindings = <&kp DOUBLE_QUOTE>;
+            bindings = <&kp DQT>;
             key-positions = <7 9>;
             timeout-ms = <35>;
         };
