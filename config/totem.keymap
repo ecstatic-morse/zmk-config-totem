@@ -118,6 +118,12 @@
             key-positions = <7 8>;
             timeout-ms = <30>;
         };
+
+        dquote_combo {
+            bindings = <&kp DOUBLE_QUOTE>;
+            key-positions = <7 9>;
+            timeout-ms = <35>;
+        };
     };
 
     macros {
