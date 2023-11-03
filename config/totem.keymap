@@ -34,10 +34,10 @@
 #define RGHT_KEYS RGHT_TOP_KEYS RGHT_MID_KEYS RGHT_BOT_KEYS RGHT_TMB_KEYS
 
 &mt {
-    quick-tap-ms = <100>;
-    global-quick-tap;
     flavor = "tap-preferred";
     tapping-term-ms = <200>;
+    global-quick-tap;
+    quick-tap-ms = <100>;
 };
 
 / {
@@ -82,14 +82,19 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        left_pinky_ext: left_pinky_ext {
+        ht_kp_cw: ht_kp_cw {
             compatible = "zmk,behavior-hold-tap";
-            label = "LEFT_PINKY_EXT";
-            bindings = <&caps_word>, <&kp>;
-
+            label = "ht_kp_cw";
+            bindings = <&kp>, <&caps_word>;
             #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            quick-tap-ms = <200>;
+            tapping-term-ms = <200>;
+        };
+        ht_kp_molock: ht_kp_molock {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ht_kp_molock";
+            bindings = <&kp>, <&molock>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
         };
     };
 
@@ -124,10 +129,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-                        &kp Q  &kp W          &kp F             &kp P             &kp B             &kp J             &kp L             &kp U              &kp Y                &kp SINGLE_QUOTE
-                        &kp A  &hrm_l LALT R  &hrm_l LCTRL S    &hrm_l LSHFT T    &kp G             &kp M             &hrm_r RSHFT N    &hrm_r RCTRL E     &hrm_r LALT I        &kp O
-&left_pinky_ext 0 LWIN  &kp Z  &kp X          &kp C             &kp D             &kp V             &kp K             &kp H             &comma_semi_morph  &period_colon_morph  &kp FSLH          &kp RALT
-                               &kp DEL        &lt LR_SYM SPACE  &lt LR_NAV TAB    &lt LR_NAV ESC    &lt LR_NUM ENTER  &kp BSPC
+                  &kp Q  &kp W          &kp F             &kp P             &kp B             &kp J             &kp L             &kp U              &kp Y                &kp SINGLE_QUOTE
+                  &kp A  &hrm_l LALT R  &hrm_l LCTRL S    &hrm_l LSHFT T    &kp G             &kp M             &hrm_r RSHFT N    &hrm_r RCTRL E     &hrm_r LALT I        &kp O
+&ht_kp_cw LWIN 0  &kp Z  &kp X          &kp C             &kp D             &kp V             &kp K             &kp H             &comma_semi_morph  &period_colon_morph  &kp FSLH          &ht_kp_molock RALT 0
+                                        &kp DEL           &lt LR_SYM SPACE  &lt LR_NAV TAB    &lt LR_NAV ESC    &lt LR_NUM ENTER  &kp BSPC
             >;
         };
 
@@ -146,7 +151,7 @@
             bindings = <
         &trans  &trans      &trans           &trans             &trans    &kp PRCNT  &kp LT     &kp LPAR  &kp RPAR   &kp GT
         &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans    &kp PIPE   &kp LBKT   &kp LBRC  &kp RBRC   &kp RBKT
-&trans  &trans  &trans      &trans           &trans             &trans    &kp HASH   &kp CARET  &kp DLLR  &kp GRAVE  &kp BSLH  &kp AT
+&trans  &trans  &trans      &trans           &trans             &trans    &kp HASH   &kp CARET  &kp DLLR  &kp GRAVE  &kp BSLH  &trans
                             &trans           &trans             &trans    &kp AMPS   &kp STAR   &kp EXCL
             >;
 
@@ -157,7 +162,7 @@
             bindings = <
         &trans  &trans  &trans  &trans  &trans    &trans  &kp HOME  &kp PG_UP  &kp PG_DN  &kp END
         &trans  &trans  &trans  &trans  &trans    &trans  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp B     &kp LBKT   &kp RBKT   &kp W      &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp B     &kp LBRC   &kp RBRC   &kp W      &trans
                         &trans  &trans  &trans    &trans  &trans    &trans
             >;
 
