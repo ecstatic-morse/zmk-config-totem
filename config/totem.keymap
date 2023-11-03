@@ -51,7 +51,6 @@
             require-prior-idle-ms = <125>;
             hold-trigger-key-positions = <RGHT_KEYS LEFT_TOP_KEYS LEFT_BOT_KEYS LEFT_TMB_KEYS>;
             hold-trigger-on-release;
-            retro-tap;
             bindings = <&kp>, <&kp>;
         };
         hrm_r: right_homerow_mods {
@@ -63,7 +62,6 @@
             require-prior-idle-ms = <125>;
             hold-trigger-key-positions = <LEFT_KEYS RGHT_TOP_KEYS RGHT_BOT_KEYS RGHT_TMB_KEYS>;
             hold-trigger-on-release;
-            retro-tap;
             bindings = <&kp>, <&kp>;
         };
         period_colon_morph: period_colon_morph {
