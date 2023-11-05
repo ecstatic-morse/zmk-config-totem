@@ -122,6 +122,20 @@
             key-positions = <7 9>;
             timeout-ms = <35>;
         };
+
+        ctrl_pgup_combo {
+            bindings = <&kp LC(PG_UP)>;
+            key-positions = <16 17>;
+            timeout-ms = <30>;
+            layers = <LR_NAV>;
+        };
+
+        ctrl_pgdown_combo {
+            bindings = <&kp LC(PG_DN)>;
+            key-positions = <17 18>;
+            timeout-ms = <30>;
+            layers = <LR_NAV>;
+        };
     };
 
     macros {
