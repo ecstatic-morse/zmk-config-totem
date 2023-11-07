@@ -153,6 +153,11 @@
             key-positions = <23 24>;
             layers = <LR_NUM>;
         };
+
+        grave_combo {
+            bindings = <&kp GRAVE>;
+            key-positions = <6 8>;
+        };
     };
 
     macros {
