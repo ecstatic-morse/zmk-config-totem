@@ -147,6 +147,12 @@
             key-positions = <6 7 9>;
             timeout-ms = <30>;
         };
+
+        zero_combo {
+            bindings = <&kp N0>;
+            key-positions = <23 24>;
+            layers = <1>;
+        };
     };
 
     macros {
