@@ -151,7 +151,7 @@
         zero_combo {
             bindings = <&kp N0>;
             key-positions = <23 24>;
-            layers = <1>;
+            layers = <LR_NUM>;
         };
     };
 
