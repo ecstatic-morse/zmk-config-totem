@@ -141,6 +141,12 @@
             timeout-ms = <30>;
             layers = <LR_NAV>;
         };
+
+        right_arrow_combo {
+            bindings = <&right_arrow>;
+            key-positions = <6 7 9>;
+            timeout-ms = <30>;
+        };
     };
 
     macros {
