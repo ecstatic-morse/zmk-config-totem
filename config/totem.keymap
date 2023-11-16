@@ -17,11 +17,11 @@
 
 // Layer names
 
-#define LR_BASE 0
-#define LR_NUM  1
-#define LR_SYM  2
-#define LR_NAV  3
-#define LR_CFG  4
+#define LR_BSE 0
+#define LR_NUM 1
+#define LR_SYM 2
+#define LR_NAV 3
+#define LR_CFG 4
 
 // Key positions for `hold-trigger-tap-positions`
 
@@ -36,11 +36,8 @@
 #define RGHT_TMB_KEYS 35 36 37
 #define RGHT_KEYS RGHT_TOP_KEYS RGHT_MID_KEYS RGHT_BOT_KEYS RGHT_TMB_KEYS
 
-&mt {
-    flavor = "tap-preferred";
-    tapping-term-ms = <200>;
-    global-quick-tap;
-    quick-tap-ms = <100>;
+&lt {
+    flavor = "hold-preferred";
 };
 
 / {
@@ -110,22 +107,122 @@
             timeout-ms = <3000>;
         };
 
+        // Vertical combos rhs
+        at_combo {
+            bindings = <&kp AT>;
+            key-positions = <5 15>;
+            layers = <LR_BSE>;
+        };
         under_combo {
             bindings = <&kp UNDER>;
-            key-positions = <6 7>;
-            timeout-ms = <30>;
+            key-positions = <6 16>;
+            layers = <LR_BSE>;
         };
-
-        dash_combo {
-            bindings = <&kp MINUS>;
-            key-positions = <7 8>;
-            timeout-ms = <30>;
+        semi_combo {
+            bindings = <&kp SEMI>;
+            key-positions = <7 17>;
+            layers = <LR_BSE>;
         };
-
+        colon_combo {
+            bindings = <&kp COLON>;
+            key-positions = <8 18>;
+            layers = <LR_BSE>;
+        };
         dquote_combo {
             bindings = <&kp DQT>;
-            key-positions = <7 9>;
-            timeout-ms = <35>;
+            key-positions = <8 9>;
+            layers = <LR_BSE>;
+        };
+
+        equal_combo {
+            bindings = <&hrm_r RS(RCTRL) EQUAL>;
+            key-positions = <16 17>;
+            timeout-ms = <30>;
+            layers = <LR_BSE>;
+        };
+        plus_combo {
+            bindings = <&hrm_r RS(LALT) PLUS>;
+            key-positions = <16 18>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+        star_combo {
+            bindings = <&hrm_r RC(LALT) STAR>;
+            key-positions = <17 18>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+        bang_combo {
+            bindings = <&kp EXCL>;
+            key-positions = <15 16>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+        dash_combo {
+            bindings = <&kp MINUS>;
+            key-positions = <18 19>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+
+        amps_combo {
+            bindings = <&kp AMPS>;
+            key-positions = <27 28>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+        pipe_combo {
+            bindings = <&kp PIPE>;
+            key-positions = <28 29>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+        hash_combo {
+            bindings = <&kp HASH>;
+            key-positions = <27 29>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+        prcnt_combo {
+            bindings = <&kp PRCNT>;
+            key-positions = <27 28 29>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+        bslh_combo {
+            bindings = <&kp BSLH>;
+            key-positions = <29 30>;
+            layers = <LR_BSE>;
+        };
+        qmark_combo {
+            bindings = <&kp QMARK>;
+            key-positions = <28 30>;
+            layers = <LR_BSE>;
+        };
+
+        caret_combo {
+            bindings = <&kp CARET>;
+            key-positions = <6 7>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+        dllr_combo {
+            bindings = <&kp DLLR>;
+            key-positions = <7 8>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
+        };
+        grave_combo {
+            bindings = <&kp GRAVE>;
+            key-positions = <6 8>;
+            layers = <LR_BSE>;
+        };
+
+        dash_combo_lhs {
+            bindings = <&kp MINUS>;
+            key-positions = <3 13>;
+            layers = <LR_BSE>;
+            timeout-ms = <30>;
         };
 
         ctrl_pgup_combo {
@@ -134,7 +231,6 @@
             timeout-ms = <30>;
             layers = <LR_NAV>;
         };
-
         ctrl_pgdown_combo {
             bindings = <&kp LC(PG_DN)>;
             key-positions = <17 18>;
@@ -146,17 +242,12 @@
             bindings = <&right_arrow>;
             key-positions = <7 9 8>;
             timeout-ms = <30>;
+            layers = <LR_BSE>;
         };
 
-        zero_combo {
-            bindings = <&kp N0>;
-            key-positions = <23 24>;
-            layers = <LR_NUM>;
-        };
-
-        grave_combo {
-            bindings = <&kp GRAVE>;
-            key-positions = <6 8>;
+        ctrl_k_combo {
+            bindings = <&kp LC(K)>;
+            key-positions = <10 11 12>;
         };
     };
 
@@ -185,9 +276,9 @@
         number_layer {
             bindings = <
         &trans  &kp N7          &kp N8           &kp N9            &trans      &trans  &kp F7           &kp F8           &kp F9          &kp F12
-        &trans  &hrm_l LALT N4  &hrm_l LCTRL N5  &hrm_l LSHIFT N6  &trans      &trans  &hrm_r RSHFT F4  &hrm_r RCTRL F5  &hrm_r RALT F6  &kp F11
-&trans  &kp N0  &kp N1          &kp N2           &kp N3            &trans      &trans  &kp F1           &kp F2           &kp F3          &kp F10  &trans
-                                &kp MINUS        &kp EQUAL         &kp PLUS    &trans  &trans           &trans
+        &kp N0  &hrm_l LALT N1  &hrm_l LCTRL N2  &hrm_l LSHIFT N3  &trans      &trans  &hrm_r RSHFT F1  &hrm_r RCTRL F2  &hrm_r RALT F3  &kp F10
+&trans  &trans  &kp N4          &kp N5           &kp N6            &trans      &trans  &kp F4           &kp F5           &kp F6          &kp F11  &trans
+                                &kp N0           &trans            &trans      &trans  &trans           &trans
             >;
 
             label = "NUM";
@@ -195,10 +286,10 @@
 
         symbol_layer {
             bindings = <
-        &trans  &trans      &trans           &trans             &trans    &kp PRCNT  &kp LT     &kp LPAR  &kp RPAR   &kp GT
-        &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans    &kp PIPE   &kp LBKT   &kp LBRC  &kp RBRC   &kp RBKT
-&trans  &trans  &trans      &trans           &trans             &trans    &kp HASH   &kp CARET  &kp DLLR  &kp GRAVE  &kp BSLH  &trans
-                            &trans           &trans             &trans    &kp AMPS   &kp STAR   &kp EXCL
+        &trans  &trans      &trans           &trans             &trans    &trans   &trans    &kp LPAR  &kp RPAR  &trans
+        &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans    &trans   &kp LBKT  &kp LBRC  &kp RBRC  &kp RBKT
+&trans  &trans  &trans      &trans           &trans             &trans    &trans   &trans    &kp LT    &kp GT    &trans  &trans
+                            &trans           &trans             &trans    &trans   &trans    &trans
             >;
 
             label = "SYM";
@@ -218,8 +309,8 @@
         config_layer {
             bindings = <
         &trans  &bt BT_CLR    &trans        &out OUT_TOG  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &bt BT_SEL 3  &bt BT_SEL 4  &trans        &trans    &trans  &trans  &trans  &trans  &trans
                               &trans        &trans        &trans    &trans  &trans  &trans
             >;
 
