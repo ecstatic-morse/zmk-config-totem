@@ -289,7 +289,7 @@
         &trans  &trans      &trans           &trans             &trans    &trans   &trans    &kp LPAR  &kp RPAR  &trans
         &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans    &trans   &kp LBKT  &kp LBRC  &kp RBRC  &kp RBKT
 &trans  &trans  &trans      &trans           &trans             &trans    &trans   &trans    &kp LT    &kp GT    &trans  &trans
-                            &trans           &trans             &trans    &trans   &trans    &trans
+                            &trans           &trans             &trans    &trans   &kp SPACE    &trans
             >;
 
             label = "SYM";
