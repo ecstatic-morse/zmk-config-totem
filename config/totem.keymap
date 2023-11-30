@@ -88,13 +88,12 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
-        ht_kp_molock: ht_kp_molock {
-            compatible = "zmk,behavior-hold-tap";
-            label = "ht_kp_molock";
-            bindings = <&kp>, <&molock>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
+        tdrp: tap_dance_right_pinky {
+            compatible = "zmk,behavior-tap-dance";
+            label = "tap_dance_right_pinky";
+            #binding-cells = <0>;
+            tapping-term-ms = <400>;
+            bindings = <&sk LSHFT>, <&kp RALT>;
         };
     };
 
@@ -274,7 +273,7 @@
             bindings = <
                   &kp Q  &kp W          &kp F           &kp P             &kp B             &kp J           &kp L             &kp U              &kp Y                &kp SINGLE_QUOTE
                   &kp A  &hrm_l LALT R  &hrm_l LCTRL S  &hrm_l LSHFT T    &kp G             &kp M           &hrm_r RSHFT N    &hrm_r RCTRL E     &hrm_r LALT I        &kp O
-&ht_kp_cw LWIN 0  &kp Z  &kp X          &kp C           &kp D             &kp V             &kp K           &kp H             &comma_semi_morph  &period_colon_morph  &kp FSLH          &ht_kp_molock RALT 0
+&ht_kp_cw LWIN 0  &kp Z  &kp X          &kp C           &kp D             &kp V             &kp K           &kp H             &comma_semi_morph  &period_colon_morph  &kp FSLH          &tdrp
                                         &kp DEL         &lt LR_SYM SPACE  &lt LR_NAV TAB    &lt LR_NAV ESC  &lt LR_NUM ENTER  &kp BSPC
             >;
         };
@@ -282,8 +281,8 @@
         number_layer {
             bindings = <
         &trans  &kp N7          &kp N8           &kp N9            &trans      &trans  &kp F7           &kp F8           &kp F9          &kp F12
-        &kp N0  &hrm_l LALT N1  &hrm_l LCTRL N2  &hrm_l LSHIFT N3  &trans      &trans  &hrm_r RSHFT F1  &hrm_r RCTRL F2  &hrm_r RALT F3  &kp F10
-&trans  &trans  &kp N4          &kp N5           &kp N6            &trans      &trans  &kp F4           &kp F5           &kp F6          &kp F11  &trans
+        &kp N0  &hrm_l LALT N1  &hrm_l LCTRL N2  &hrm_l LSHIFT N3  &kp DOT     &trans  &hrm_r RSHFT F1  &hrm_r RCTRL F2  &hrm_r RALT F3  &kp F10
+&trans  &trans  &kp N4          &kp N5           &kp N6            &trans      &trans  &kp F4           &kp F5           &kp F6          &kp F11  &molock
                                 &kp N0           &trans            &trans      &trans  &trans           &trans
             >;
 
@@ -292,10 +291,10 @@
 
         symbol_layer {
             bindings = <
-        &trans  &trans      &trans           &trans             &trans    &trans   &trans    &kp LPAR  &kp RPAR  &trans
-        &trans  &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans    &trans   &kp LBKT  &kp LBRC  &kp RBRC  &kp RBKT
-&trans  &trans  &trans      &trans           &trans             &trans    &trans   &trans    &kp LT    &kp GT    &trans  &trans
-                            &trans           &trans             &trans    &trans   &kp SPACE    &trans
+        &trans  &trans  &trans  &trans  &trans    &trans     &trans     &kp LPAR  &kp RPAR  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans     &kp LBKT   &kp LBRC  &kp RBRC  &kp RBKT
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &kp LT    &kp GT    &kp BSLH  &molock
+                        &trans  &trans  &trans    &kp SPACE  &kp ENTER  &trans
             >;
 
             label = "SYM";
@@ -305,7 +304,7 @@
             bindings = <
         &trans  &trans  &trans  &trans  &trans    &trans  &kp HOME  &kp PG_UP  &kp PG_DN  &kp END
         &trans  &trans  &trans  &trans  &trans    &trans  &kp LEFT  &kp UP     &kp DOWN   &kp RIGHT
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp B     &kp LBRC   &kp RBRC   &kp W      &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp B     &kp LBRC   &kp RBRC   &kp W      &molock
                         &trans  &trans  &trans    &trans  &trans    &trans
             >;
 
