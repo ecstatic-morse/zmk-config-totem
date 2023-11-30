@@ -36,6 +36,19 @@
 #define RGHT_TMB_KEYS 35 36 37
 #define RGHT_KEYS RGHT_TOP_KEYS RGHT_MID_KEYS RGHT_BOT_KEYS RGHT_TMB_KEYS
 
+#define HOME_ROW_COMBO_TIMEOUT 30
+#define VERT_COMBO_TIMEOUT 50
+#define HRZN_COMBO_TIMEOUT 40
+
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS, TIMEOUT) \
+  combo_##NAME { \
+    timeout-ms = <TIMEOUT>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <LAYERS>; \
+    require-prior-idle-ms = <80>; \
+  }
+
 &lt {
     flavor = "hold-preferred";
 };
@@ -103,151 +116,55 @@
         config_layer_combo {
             bindings = <&sl LR_CFG>;
             key-positions = <20 31>;
-            timeout-ms = <3000>;
+            timeout-ms = <1000>;
         };
 
-        // Vertical combos rhs
-        at_combo {
-            bindings = <&kp AT>;
-            key-positions = <5 15>;
-            layers = <LR_BSE>;
-        };
-        under_combo {
-            bindings = <&kp UNDER>;
-            key-positions = <6 16>;
-            layers = <LR_BSE>;
-        };
-        semi_combo {
-            bindings = <&kp SEMI>;
-            key-positions = <7 17>;
-            layers = <LR_BSE>;
-        };
-        colon_combo {
-            bindings = <&kp COLON>;
-            key-positions = <8 18>;
-            layers = <LR_BSE>;
-        };
-        dquote_combo {
-            bindings = <&kp DQT>;
-            key-positions = <8 9>;
-            layers = <LR_BSE>;
-        };
+        // Vertical (RHS)
+        COMBO(at, &kp AT, 5 15, LR_BSE, VERT_COMBO_TIMEOUT);
+        COMBO(under, &kp UNDER, 6 16, LR_BSE, VERT_COMBO_TIMEOUT);
+        COMBO(semi, &kp SEMI, 7 17, LR_BSE, VERT_COMBO_TIMEOUT);
+        COMBO(colon, &kp COLON, 8 18, LR_BSE, VERT_COMBO_TIMEOUT);
 
-        equal_combo {
-            bindings = <&hrm_r RS(RCTRL) EQUAL>;
-            key-positions = <16 17>;
-            timeout-ms = <30>;
-            layers = <LR_BSE>;
-        };
-        plus_combo {
-            bindings = <&hrm_r RS(LALT) PLUS>;
-            key-positions = <16 18>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
-        star_combo {
-            bindings = <&hrm_r RC(LALT) STAR>;
-            key-positions = <17 18>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
-        bang_combo {
-            bindings = <&kp EXCL>;
-            key-positions = <15 16>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
-        dash_combo {
-            bindings = <&kp MINUS>;
-            key-positions = <18 19>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
+        // Vertical (LHS)
+        COMBO(dash_lhs, &kp MINUS, 3 13, LR_BSE, VERT_COMBO_TIMEOUT);
 
-        amps_combo {
-            bindings = <&kp AMPS>;
-            key-positions = <27 28>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
-        pipe_combo {
-            bindings = <&kp PIPE>;
-            key-positions = <28 29>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
-        hash_combo {
-            bindings = <&kp HASH>;
-            key-positions = <27 29>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
-        prcnt_combo {
-            bindings = <&kp PRCNT>;
-            key-positions = <27 28 29>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
-        bslh_combo {
-            bindings = <&kp BSLH>;
-            key-positions = <29 30>;
-            layers = <LR_BSE>;
-        };
-        qmark_combo {
-            bindings = <&kp QMARK>;
-            key-positions = <28 30>;
-            layers = <LR_BSE>;
-        };
+        // Middle row
+        COMBO(equal, &hrm_r RS(RCTRL) EQUAL, 16 17, LR_BSE, HOME_ROW_COMBO_TIMEOUT);
+        COMBO(plus, &hrm_r RS(LALT) PLUS, 16 18, LR_BSE, HOME_ROW_COMBO_TIMEOUT);
+        COMBO(star, &hrm_r RC(LALT) STAR, 17 18, LR_BSE, HOME_ROW_COMBO_TIMEOUT);
+        COMBO(bang, &kp EXCL, 15 16, LR_BSE, HOME_ROW_COMBO_TIMEOUT);
+        COMBO(dash, &kp MINUS, 18 19, LR_BSE, HOME_ROW_COMBO_TIMEOUT);
 
-        caret_combo {
-            bindings = <&kp CARET>;
-            key-positions = <6 7>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
-        dllr_combo {
-            bindings = <&kp DLLR>;
-            key-positions = <7 8>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
-        grave_combo {
-            bindings = <&kp GRAVE>;
-            key-positions = <6 8>;
-            layers = <LR_BSE>;
-        };
+        COMBO(lparen, &hrm_l LC(LALT) LPAR, 11 12, LR_BSE, HOME_ROW_COMBO_TIMEOUT);
+        COMBO(rparen, &hrm_l LS(LCTRL) RPAR, 12 13, LR_BSE, HOME_ROW_COMBO_TIMEOUT);
+        COMBO(lbrc, &hrm_l LS(LALT) LBRC, 10 12, LR_BSE, HOME_ROW_COMBO_TIMEOUT);
+        COMBO(rbrc, &kp RBRC, 11 13, LR_BSE, HOME_ROW_COMBO_TIMEOUT);
 
-        dash_combo_lhs {
-            bindings = <&kp MINUS>;
-            key-positions = <3 13>;
-            layers = <LR_BSE>;
-            timeout-ms = <30>;
-        };
+        // Lower row
+        COMBO(amps, &kp AMPS, 27 28, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(pipe, &kp PIPE, 28 29, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(hash, &kp HASH, 27 29, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(prcnt, &kp PRCNT, 27 28 29, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(bslh, &kp BSLH, 29 30, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(qmark, &kp QMARK, 28 30, LR_BSE, HRZN_COMBO_TIMEOUT);
 
-        ctrl_pgup_combo {
-            bindings = <&kp LC(PG_UP)>;
-            key-positions = <16 17>;
-            timeout-ms = <30>;
-            layers = <LR_NAV>;
-        };
-        ctrl_pgdown_combo {
-            bindings = <&kp LC(PG_DN)>;
-            key-positions = <17 18>;
-            timeout-ms = <30>;
-            layers = <LR_NAV>;
-        };
+        COMBO(lt, &kp LT, 22 23, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(gt, &kp GT, 23 24, LR_BSE, HRZN_COMBO_TIMEOUT);
 
-        right_arrow_combo {
-            bindings = <&right_arrow>;
-            key-positions = <7 9 8>;
-            timeout-ms = <30>;
-            layers = <LR_BSE>;
-        };
+        // Top row
+        COMBO(caret, &kp CARET, 6 7, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(dllr, &kp DLLR, 7 8, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(grave, &kp GRAVE, 6 8, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(dquote, &kp DQT, 8 9, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(right_arrow, &right_arrow, 7 8 9, LR_BSE, 50);
+        COMBO(my_double_colon, &my_double_colon, 6 7 8, LR_BSE, 50);
 
-        ctrl_k_combo {
-            bindings = <&kp LC(K)>;
-            key-positions = <10 11 12>;
-        };
+        COMBO(lbkt, &kp LBKT, 1 2, LR_BSE, HRZN_COMBO_TIMEOUT);
+        COMBO(rbkt, &kp RBKT, 2 3, LR_BSE, HRZN_COMBO_TIMEOUT);
+
+        COMBO(ctrl_pgup, &kp LC(PG_UP), 16 17, LR_NAV, 50);
+        COMBO(ctrl_pgdown, &kp LC(PG_DN), 17 18, LR_NAV, 50);
+        COMBO(ctrl_k, &kp LC(K), 10 11 12, LR_BSE, 50);
     };
 
     macros {
